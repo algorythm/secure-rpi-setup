@@ -2,6 +2,20 @@
 
 source print.sh
 
+function pipinstall() {
+  if questionY "Do you want to install it"
+  then
+    if ! [ -x "$(command -v pip3)" ]; then
+      echo "Error: pip3 does not exist."
+      exit 1
+    else
+      sudo pip3 install $1
+    fi
+  else
+    exit 1
+  fi
+}
+
 bot "Installing docker!"
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 
@@ -20,9 +34,10 @@ sudo docker ps --all -q | xargs sudo docker rm
 sudo docker images -q | xargs sudo docker rmi
 ok
 
-bot "Installing docker-compose v1.22"
-sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+bot "Installing docker-compose"
+if ! [ -x "$(command -v docker-compose)" ]; then
+  pipinstall docker-compose
+fi
 ok
 
 bot "Docker is now installed!"

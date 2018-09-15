@@ -32,12 +32,8 @@ bot "Vim, tmux and git have been installed!"
 
 bot "I will make sure to update the system for you."
 sudo rpi-update
-# running "Upgrading"
-# sudo apt-get upgrade -y
-# ok
-# running "Upgrading distro"
-# sudo apt-get dist-upgrade -y
-ok
+bot "Expanding root filesystem"
+sudo raspi-config --expand-rootfs
 
 #####
 # Set hostname
