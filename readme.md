@@ -6,5 +6,5 @@ This script follows my guide from [algorythm/guides/secure-rpi-setup](https://gi
 ## Installation
 
 ```bash
-sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/algorythm/secure-rpi-setup/master/setup.sh"
+sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/algorythm/secure-rpi-setup/master/download-install.sh)"
 ```
