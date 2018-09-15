@@ -78,7 +78,6 @@ then
     read -ep "Enter username: " username
     sudo adduser $username
     sudo adduser $username admin
-    sudo passwd $username
     # Check if user/.ssh exist
     [[ ! -d /home/$username/.ssh ]] && \
         mkdir /home/$username/.ssh && \
