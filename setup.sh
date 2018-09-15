@@ -55,7 +55,7 @@ ok "Using $fqdn"
 
 sudo hostname $fqdn
 echo $fqdn > /etc/hostname
-echo "127.0.0.1 \t$fqdn" >> /etc/hosts
+echo "127.0.0.1 $fqdn" >> /etc/hosts
 
 ok "Hostname and record in local hosts file have been set."
 
