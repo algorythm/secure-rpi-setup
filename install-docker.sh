@@ -5,6 +5,8 @@ source print.sh
 bot "Installing docker!"
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 
+rm get-docker.sh
+
 running "Adding user $USER (you) to the docker group"
 sudo groupadd docker
 sudo adduser $USER docker
