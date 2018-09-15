@@ -63,21 +63,11 @@ ok "Hostname and record in local hosts file have been set."
 # Add an administrator user
 #####
 
-if ! grep -q "^admin:" /etc/group
-then
-    running "Creating group 'admin'"
-    sudo groupadd admin
-    ok
-fi
-
-bot "Adding administrator to sudoers"
-echo "%sudo\tALL=(ALL:ALL) ALL"
-
 if questionY "Do you wish to create a new administrator (sudo) user" 
 then
     read -ep "Enter username: " username
     sudo adduser $username
-    sudo adduser $username admin
+    sudo adduser $username sudo
     # Check if user/.ssh exist
     [[ ! -d /home/$username/.ssh ]] && \
         mkdir /home/$username/.ssh && \
