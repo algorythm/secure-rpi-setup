@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-if [[ ! $EUID -eq 0 ]]
-then
+if [ ! $EUID -eq 0 ]; then
     echo "Please run as sudo.\n" >&2
     exit 1
 fi
