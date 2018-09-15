@@ -11,7 +11,7 @@ sudo adduser $USER docker
 ok
 
 bot "Testing docker"
-docker run hello-world
+sudo docker run hello-world
 
 running "Cleaning up all docker containers and images"
 sudo docker ps --all -q | xargs sudo docker rm
